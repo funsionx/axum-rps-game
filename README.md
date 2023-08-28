@@ -4,21 +4,21 @@ Minigame written in Rust using Axum web-framework
 
 ## Project structure
 ```
-	- src 
-		- routes
-			- html.rs
-			- rps.rs
-			- mod.rs
-		- main.rs
-	...
-	index.html	
+- src 
+	- routes
+		- html.rs
+		- rps.rs
+		- mod.rs
+	- main.rs
+...
+index.html	
 ```
 
-*routes* -> folder with endpoints
-  *html.rs* -> get request on route "/", returns html page
-  *rps.rs* -> post request on route "/", returns randomly generated game item
-*main.rs* -> here app starts and router is defined
-*index.html* -> the only page with content, tailwind and daisyui installed via cdn
+- *routes* -> folder with endpoints
+  - *html.rs* -> get request on route "/", returns html page
+  - *rps.rs* -> post request on route "/", returns randomly generated game item
+- *main.rs* -> here app starts and router is defined
+- *index.html* -> the only page with content, tailwind and daisyui installed via cdn
 
 ## How to install and run
 
