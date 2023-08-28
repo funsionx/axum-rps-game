@@ -1,6 +1,8 @@
 # Rock-Paper-Scissors game
 
-Minigame written in Rust using Axum web-framework
+Minigame written in Rust using Axum web-framework.
+
+## Used tools
 
 ## Project structure
 ```
@@ -11,7 +13,7 @@ Minigame written in Rust using Axum web-framework
 		- mod.rs
 	- main.rs
 ...
-index.html	
+- index.html	
 ```
 
 - *routes* -> folder with endpoints
