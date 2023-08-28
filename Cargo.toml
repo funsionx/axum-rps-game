@@ -1,0 +1,10 @@
+[package]
+name = "rps-game"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tokio = { version = "1.32.0", features = ["full"] }
+rand = "0.8.5"
+axum = "0.6.20"
+serde = { version = "1.0", features = ["derive"] }

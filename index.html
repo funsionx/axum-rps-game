@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dracula">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.2/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="flex justify-between items-center flex-col min-w-screen min-h-screen py-48">
+    <main class="flex flex-col items-center">
+      <h1 class="font-extrabold text-5xl mb-[3%] max-sm:text-lg max-md:text-3xl">Rock Paper Scissors mini game</h1>
+      <p class="mb-5 text-lg font-bold">Make your move:</p>
+      <div class="flex gap-4">
+        <button type="button" onclick="play('rock')" class="btn btn-primary text-white">
+        Rock
+        </button>
+        <button type="button" onclick="play('paper')" class="btn btn-secondary text-white"">
+        Paper
+        </button>
+        <button type="button" onclick="play('scissors')" class="btn btn-accent text-white"">
+        Scissors
+        </button>
+      </div>
+    </main>
+    <footer id="result" class="flex flex-col max-w-[50%]">
+      <h1 id="status" class="text-4xl font-bold text-serif mb-5 max-sm:text-lg max-md:text-2xl"></h1>
+      <div class="flex justify-between">
+        <div>
+          <h3 id="move-text"></h3>
+          <h3 id="move" class="underline font-bold text-xl"></h3>
+        </div>
+        <div>
+          <h3 id="response-text"></h3>
+          <h3 id="response" class="underline font-bold text-xl"></h3>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const resultDiv = document.getElementById("result");
+      
+      const playerMove = document.getElementById("move");
+      const gameStatus = document.getElementById("status");
+      const gameResponse = document.getElementById("response");
+      
+      const moveText = document.getElementById("move-text")
+      const responseText = document.getElementById("response-text")
+      //yellow: #DCF216
+      //green: "#0F9127"
+      //red: #EB3434
+      async function play(rps) {
+        const requestData = { value: rps };
+      
+        playerMove.textContent = rps
+      
+        fetch("/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(requestData),
+        })
+          .then((response) => response.json())
+          .then((result) => {
+            moveText.textContent = "Your move:"
+            responseText.textContent = "Game's move:"
+            
+            gameStatus.textContent = result?.status;
+            gameStatus.style.color = result?.color
+            gameResponse.textContent = result?.value
+          });
+      }
+    </script>
+  </body>
+</html>
