@@ -1,9 +1,9 @@
 # Rock-Paper-Scissors game
 
-Minigame written in Rust in my free time using Axum web-framework.
+Mini game written in Rust in my free time using Axum web-framework. Don't consider it as a serious project, I was bored in sad rainy day :)
 
 ## Used tools
-All REST and CRUD logic was implemented by backend. In frontend I used only 1 request with js.
+All REST and CRUD logic was implemented by backend. In frontend I used only 1 fetch().
 
 Backend:
 - [Tokio](https://tokio.rs) - for async runtime
@@ -29,7 +29,7 @@ Frontend (only UI tools):
 
 - *routes* -> folder with endpoints
   - *html.rs* -> get request on route "/", returns html page
-  - *rps.rs* -> post request on route "/", returns randomly generated game item
+  - *rps.rs* -> post request on route "/", returns randomly generated game item and game status with color of it
 - *main.rs* -> here app starts and router is defined
 - *index.html* -> the only page with content, tailwind and daisyui installed via cdn
 
